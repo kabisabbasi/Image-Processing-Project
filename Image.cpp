@@ -29,8 +29,7 @@ bool LoadPPM(const char* filename, ImageData& img)
     file >> img.width >> img.height;
     file >> maxValue;
 
-    img.pixels =
-        new Pixel[img.width * img.height];
+    img.pixels = new Pixel[img.width * img.height];
 
     for (int i = 0; i < img.width * img.height; i++)
     {
@@ -92,14 +91,11 @@ void InvertColors(ImageData& img)
 {
     for (int i = 0; i < img.width * img.height; i++)
     {
-        img.pixels[i].r =
-            255 - img.pixels[i].r;
+        img.pixels[i].r = 255 - img.pixels[i].r;
 
-        img.pixels[i].g =
-            255 - img.pixels[i].g;
+        img.pixels[i].g = 255 - img.pixels[i].g;
 
-        img.pixels[i].b =
-            255 - img.pixels[i].b;
+        img.pixels[i].b = 255 - img.pixels[i].b;
     }
 }
 
@@ -186,4 +182,26 @@ void FreeImageData(ImageData& img)
 
     img.width = 0;
     img.height = 0;
+}
+
+long long GetFileSize(const std::string& filename) // does some pointer arithmetic with eof logic to get the file size
+{                                                    // (like ma'am Saima taught us in OOP  :> )
+    std::ifstream file(filename, std::ios::binary | std::ios::ate); // open at end
+    if (!file.is_open()) return 0;
+    return file.tellg();
+}
+
+void CopyImage(const ImageData& source, ImageData& destination) // copies pixels from source to destination
+{
+    FreeImageData(destination);
+
+    destination.width = source.width;
+    destination.height = source.height;
+
+    destination.pixels = new Pixel[source.width * source.height];
+
+    for (int i = 0; i < source.width * source.height; i++)
+    {
+        destination.pixels[i] = source.pixels[i];
+    }
 }

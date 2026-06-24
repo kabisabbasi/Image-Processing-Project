@@ -11,3 +11,5 @@ bool CompressImageHuffman(const ImageData& img, const char* filename);
 double GetRLECompressionTime();
 
 double GetHuffmanCompressionTime();
+
+bool DecompressImageHuffman(const char* filename, ImageData& img);

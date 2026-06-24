@@ -1,6 +1,7 @@
 #pragma once
 
 #include "raylib.h"
+#include <string>
 
 struct Pixel
 {
@@ -36,3 +37,7 @@ void ThresholdFilter(ImageData& img);
 Texture2D CreateTextureFromImageData(const ImageData& img);
 
 void FreeImageData(ImageData& img);
+
+long long GetFileSize(const std::string& filename);
+
+void CopyImage(const ImageData& source, ImageData& destination);
