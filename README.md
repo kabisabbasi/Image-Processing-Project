@@ -11,7 +11,7 @@ A program that allows the user to make changes to images and then share them. Th
 - Sharing over wifi
 
 ## Screenshots
-![Screenshot of UI with the gradient sample PPM file](screenshots/ui.png)
+![Screenshot of UI with the gradient sample PPM file](/screenshots/ui.png)
 
 ## How to use
 Download the latest version from the [Releases](https://github.com/kabisabbasi/Image-Processing-Project/releases) section on the right. The program can be used normally by simply running the executable and loading an image by entering its directory into the text box on the top left of the app, then, when all edits are made, the image can be saved by clicking the 'Save' button on the top right of the app.
